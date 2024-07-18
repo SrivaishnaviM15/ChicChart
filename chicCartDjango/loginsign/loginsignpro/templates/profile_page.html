@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ChicCart-Login</title>
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'images/logo.png' %}" />
+    <link rel="stylesheet" href="{% static 'css/profile_page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styleforhomepages.css' %}">
+    <script src="https://kit.fontawesome.com/24c494a6b6.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .btn-purple{
+            background-color:#b480d4;
+            width: 100px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header
+        style="background:url(https://img.freepik.com/free-photo/violet-watercolor-texture-background_1083-172.jpg?1);">
+        <div id="logo">
+            <a href="http://127.0.0.1:5500/mainpage/mainpage.html"><img src="{% static 'images/logo.png' %} " alt="brandLogo" id="landingPage"
+                style="height: 110px; width:110px"></a>
+      </div>
+        
+<ul id="nav_bar">
+    <li id="megamenu_container"><a href="{%url 'men'%}">men</a></li>
+    <li><a href="{%url 'women'%}">women</a></li>
+    <li><a href="{%url 'kids'%}">kids</a></li>
+    <li><a href="{%url 'living'%}">home &amp; living</a></li>
+    <li><a href="{%url 'beauty'%}">beauty</a></li>
+</ul>
+
+        <div id="search">
+            <input type="text" id="search_bar" placeholder="Search for products, brands and more" />
+            <i class="fa-solid fa-magnifying-glass" id="search_icon"></i>
+        </div>
+        <div id="right_icon">
+            <div id="reggDropdown">
+                <div id="drop">
+                    <a href="{%url 'login'%}" class="dropList">login</a>
+                    <a href="{%url 'signup'%}" class="dropList">sign up</a>
+                </div>
+                <i class="fa-regular fa-user"></i>
+                <span>profile</span>
+            </div>
+            <div onclick="wishlist_icon()">
+                <i class="fa-regular fa-heart"></i>
+                <span>wishlist</span>
+            </div>
+            <div onclick="bag_icon()">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Cart</span>
+            </div>
+        </div>
+    </header>
+    <div id="boxbody">
+        <div class="imgbo">
+            <img src="{% static 'images/discount.jpg' %} " alt="img not found" />
+        </div>
+        <div class="signin">
+            <h2>Login</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p>By continuing, I agree to the <span> Terms of Use </span> and <span>privacy policy</span> </p>
+                <input type="submit" value="Login" class="btn btn-lg btn-purple">
+            </form>
+            <p>Have trouble logging in?<span> Get help</span> </p>
+            <p>Don't have an account ? <a href="{%url 'signup'%}" id="sign">Sign up</a> </p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function wishlist_icon() {
+            window.location.href = "http://127.0.0.1:5500/wishlist/wishlist.html"
+        }
+        function bag_icon() {
+            window.location.href = "http://127.0.0.1:5500/wishlist/cart.html"
+        }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
